@@ -12,45 +12,44 @@ const validationSchema = Yup.object().shape({
 
 function LoginScreen({navigation}) {
   return (
-      <ImageBackground
-        blurRadius={30}
-        style={styles.background}
-        source={require("../assets/Welcome_Background.jpg")}
-      >
-      <Logo/>
-      <AppForm
-        initialValues={{ email: "", password: "" }}
-        onSubmit={(values) => console.log(values)}
-        validationSchema={validationSchema}
-      >
-        <AppFormField
-          autoCapitalize="none"
-          autoCorrect={false}
-          icon="email"
-          keyboardType="email-address"
-          name="email"
-          placeholder="Email"
-          textContentType="emailAddress"
-        />
-        <AppFormField
-          autoCapitalize="none"
-          autoCorrect={false}
-          icon="lock"
-          name="password"
-          placeholder="Password"
-          secureTextEntry
-          textContentType="password"
-        />
-
-        <View style={styles.buttonsContainer}>
-        <SubmitButton title="Login" 
-                      buttonStyle={styles.button} 
-                      buttonTextStyle={styles.buttonTextStyle}
-                      onPress={() => navigation.navigate("App")}  
-                      />
-        </View>
-      </AppForm>
-    </ImageBackground>
+        <ImageBackground
+            blurRadius={30}
+            style={styles.background}
+            source={require("../assets/Welcome_Background.jpg")}
+        >
+            <Logo/>
+            <AppForm
+                initialValues={{ email: "", password: "" }}
+                onSubmit={(values) => console.log(values)}
+                validationSchema={validationSchema}
+            >
+                <AppFormField
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    icon="email"
+                    keyboardType="email-address"
+                    name="email"
+                    placeholder="Email"
+                    textContentType="emailAddress"
+                />
+                <AppFormField
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    icon="lock"
+                    name="password"
+                    placeholder="Password"
+                    secureTextEntry
+                    textContentType="password"
+                />
+                <View style={styles.buttonsContainer}>
+                    <SubmitButton title="Login" 
+                                buttonStyle={styles.button} 
+                                buttonTextStyle={styles.buttonTextStyle}
+                                onPress={() => navigation.navigate("App")}  
+                                />
+                </View>
+            </AppForm>
+        </ImageBackground>
   );
 }
 

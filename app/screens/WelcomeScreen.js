@@ -28,25 +28,25 @@ function WelcomeScreen({navigation}) {
 }
 
 const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    justifyContent: "flex-end",
-    alignItems: "center",
-  },
-  buttonsContainer: {
-    padding: 20,
-    width: "100%",
-  },
-  button: {
-    borderWidth: 2,
-    borderColor: colors.white,
-    backgroundColor: "transparent",
-    padding: 15,
-    margin: 10,
-  },
-  buttonTextStyle: {
-    fontSize: 18,
-  }
+    background: {
+        flex: 1,
+        justifyContent: "flex-end",
+        alignItems: "center",
+    },
+    buttonsContainer: {
+        padding: 20,
+        width: "100%",
+    },
+    button: {
+        borderWidth: 2,
+        borderColor: colors.white,
+        backgroundColor: "transparent",
+        padding: 15,
+        margin: 10,
+    },
+    buttonTextStyle: {
+        fontSize: 18,
+    }
 });
 
 export default WelcomeScreen;

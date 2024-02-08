@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {  StyleSheet,  SafeAreaView, View } from "react-native";
+import {  StyleSheet,  View } from "react-native";
 import SearchBar from "../components/SearchBar";
 import CategoryCard from "../components/CategoryCard";
 import Screen from "../components/Screen";
@@ -49,31 +49,32 @@ const categories = [
 ];
 
 const SearchScreen = ({navigation}) => {
-  const [searchPhrase, setSearchPhrase] = useState("");
-  const [clicked, setClicked] = useState(false);
+    const [searchPhrase, setSearchPhrase] = useState("");
+    const [clicked, setClicked] = useState(false);
 
-  return (
-    <Screen>
-      <SearchBar
-        searchPhrase={searchPhrase}
-        setSearchPhrase={setSearchPhrase}
-        clicked={clicked}
-        setClicked={setClicked}
-      />
+    return (
+        <Screen>
+            <SearchBar
+                searchPhrase={searchPhrase}
+                setSearchPhrase={setSearchPhrase}
+                clicked={clicked}
+                setClicked={setClicked}
+            />
 
-      <View style={styles.CategoryContainer}>
-      {categories.map((category) => {
-        return (
-          <View>
-          <CategoryCard categoryName={category.categoryName} 
-                        categoryImage={category.categoryImage} 
-                        onPress={() => navigation.navigate("SearchedItems")} />
-          </View>
-        );
-      })}
-    </View>      
-    </Screen>
-  );
+            <View style={styles.CategoryContainer}>
+                {categories.map((category) => {
+                    return (
+                    <View>
+                        <CategoryCard 
+                            categoryName={category.categoryName} 
+                            categoryImage={category.categoryImage} 
+                            onPress={() => navigation.navigate("SearchedItems")} />
+                    </View>
+                    );
+                })}
+            </View>      
+        </Screen>
+    );
 };
 
 export default SearchScreen;

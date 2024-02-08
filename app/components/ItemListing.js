@@ -53,29 +53,29 @@ const listings = [
     },    
 ];
 
-function ItemListing({navigation}) {
+function ItemListing({navigation, numOfColumns, showIcons, itemCardStyle, imageStyle, listStyle}) {
     return (
-
-          <FlatList
-          numColumns={2}
-          data={listings}
-          keyExtractor={(item, index) => item.id.toString()}
-          renderItem={({ item, index }) => {
-              const lastItem = index === listings.length - 1;
-              return (
-              <View style={{ flex: 1, padding: 2, maxWidth: lastItem ? '50%' : '100%' }} >
-                  <ItemCard
-                  title={item.title}
-                  subTitle={"$" + item.price}
-                  image={item.image}
-                  onPress={() => navigation.navigate("ItemDetail")}
-                  />
-              </View>                
-              )
-            }
-          }
-          />
-
+        <FlatList
+          	numColumns={numOfColumns}
+          	data={listings}
+         	keyExtractor={(item, index) => item.id.toString()}
+          	renderItem={({ item, index }) => {
+              	const lastItem = index === listings.length - 1;
+              	return (
+              		<View style={listStyle} >
+                  		<ItemCard
+							cardStyle ={itemCardStyle}
+							showIcons = {showIcons}
+							title={item.title}
+							subTitle={"$" + item.price}
+							image={item.image}
+							imageStyle={imageStyle}
+							onPress={() => navigation.navigate("ItemDetail")}
+                  		/>
+              		</View>                
+              	)
+            }}
+        />
     );
 }
 

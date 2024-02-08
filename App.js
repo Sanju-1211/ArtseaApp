@@ -5,6 +5,7 @@ import WelcomeScreen from "./app/screens/WelcomeScreen";
 import LoginScreenNavigator from './app/navigation/LoginScreenNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 
+
 const Stack = createStackNavigator();
 
 function WelcomeScreenNavigator() {
@@ -15,14 +16,14 @@ function WelcomeScreenNavigator() {
           <Stack.Screen name="Register" component={RegisterScreenNavigator} />
         </Stack.Navigator>
     );
-}
+} 
 
 export default function App() {
-  return (
-    <NavigationContainer>
-      <WelcomeScreenNavigator/>   
-    </NavigationContainer>
-  );
+    return (
+        <NavigationContainer>
+            <WelcomeScreenNavigator/>   
+        </NavigationContainer>
+    );
 }
 
 

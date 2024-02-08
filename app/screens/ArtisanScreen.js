@@ -53,45 +53,42 @@ function ArtisanScreen({navigation}) {
         <Screen style={styles.screen}>
             <View style={styles.UserCardHeader}>
                 <UserCard
-                image={require("../assets/mosh.jpg")}
-                title="Mosh Hamedani"
-                subTitle="5 Listings"
-                userCardStyle={styles.userCardStyle}
-                imageStyle = {styles.imageStyle}
+					image={require("../assets/mosh.jpg")}
+					title="Mosh Hamedani"
+					subTitle="5 Listings"
+					userCardStyle={styles.userCardStyle}
+					imageStyle = {styles.imageStyle}
                 />
                 <View style={styles.CountParent}>
-                  <View style={styles.CountContainer}>
-                      <AppText style={styles.CountStyle}>{noOfPosts}</AppText>
-                      <AppText style={styles.CountTextStyle}>Posts</AppText>
-                  </View>
-                  <View style={styles.CountContainer}>
-                      <AppText style={styles.CountStyle}>{noOfFollowers}</AppText>
-                      <AppText style={styles.CountTextStyle}>Followers</AppText>
-                  </View>
+                  	<View style={styles.CountContainer}>
+                    	<AppText style={styles.CountStyle}>{noOfPosts}</AppText>
+                      	<AppText style={styles.CountTextStyle}>Posts</AppText>
+                  	</View>
+                  	<View style={styles.CountContainer}>
+                      	<AppText style={styles.CountStyle}>{noOfFollowers}</AppText>
+                      	<AppText style={styles.CountTextStyle}>Followers</AppText>
+                  	</View>
                 </View>
             </View>
             <View style={styles.UserDescription}>
                 <AppText >
-                    Test Description
-                    Test Description
-                    Test Description
-                    Test Description
-                    Test Description
+                    Description
                 </AppText>                
             </View> 
             <View style={styles.UserCardButton}>
-                <AppButton title="Follow" 
+                <AppButton  title="Follow" 
                             onPress={()=>console.log("Message button pressed")} 
                             buttonStyle={styles.messageStyle}
-                            />  
-                <AppButton title="Message" 
-                    onPress={()=>console.log("Message button pressed")} 
-                    buttonStyle={styles.messageStyle}
-                    />  
+                />  
             </View>   
-            
-
-            <ItemListing navigation={navigation}/>                                          
+			<View style={{marginBottom:480, flexDirection:"row"}}>
+            	<ItemListing 
+					navigation={navigation} 
+					numOfColumns={2} 
+          			showIcons={true} 
+               		listStyle={styles.listStyle}
+	        	/>    
+		  	</View>                                    
         </Screen>
     );
 }
@@ -124,7 +121,7 @@ const styles = StyleSheet.create({
   },
   UserCardHeader:{
     flexDirection: 'row',
-    marginTop: 2,
+    marginTop: 5,
     justifyContent: "space-between",
     marginBottom: 10
   },
@@ -138,13 +135,17 @@ const styles = StyleSheet.create({
   messageStyle:{
     marginRight: 5,
     height: 35,
-    flex: 0.5
+    flex: 1
   },
   imageStyle:{
     height:100,
     width: 100,
     borderRadius: 50,
     
+  },
+  listStyle:{
+	flex: 0.5, 
+	padding: 2, 
   }
 });
 

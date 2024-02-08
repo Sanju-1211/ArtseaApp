@@ -3,12 +3,12 @@ import { StyleSheet,  View, Text, Image } from "react-native";
 import colors from "../config/colors";
 
 function Logo({logoContainerStyle,logoStyle,hideTagline}) {
-  return (
-    <View style={[styles.logoContainer,logoContainerStyle]}>
-    <Image style={[styles.logo,logoStyle]} source={require("../assets/AppLogoWhite_big.png")} />
-    { !hideTagline && <Text style={styles.tagline}>See Art , Buy Art , Sell Art</Text> }
-    </View>
-  );
+    return (
+        <View style={[styles.logoContainer,logoContainerStyle]}>
+            <Image style={[styles.logo,logoStyle]} source={require("../assets/AppLogoWhite_big.png")} />
+            { !hideTagline && <Text style={styles.tagline}>See Art , Buy Art , Sell Art</Text> }
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({

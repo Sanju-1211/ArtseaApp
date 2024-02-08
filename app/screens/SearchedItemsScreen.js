@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import {  StyleSheet,  SafeAreaView, View } from "react-native";
+import {  StyleSheet,  View } from "react-native";
 import SearchBar from "../components/SearchBar";
-import CategoryCard from "../components/CategoryCard";
 import Screen from "../components/Screen";
 import ItemListing from "../components/ItemListing";
 const categories = [
@@ -49,30 +48,34 @@ const categories = [
 ];
 
 const SearchedItemScreen = ({navigation}) => {
-  const [searchPhrase, setSearchPhrase] = useState("");
-  const [clicked, setClicked] = useState(false);
+    const [searchPhrase, setSearchPhrase] = useState("");
+    const [clicked, setClicked] = useState(false);
 
-  return (
-    <Screen>
-      <SearchBar
-        searchPhrase={searchPhrase}
-        setSearchPhrase={setSearchPhrase}
-        clicked={clicked}
-        setClicked={setClicked}
-      />
-
-      <ItemListing navigation={navigation}/>      
-    </Screen>
-  );
+    return (
+        <Screen>
+            <SearchBar
+                searchPhrase={searchPhrase}
+                setSearchPhrase={setSearchPhrase}
+                clicked={clicked}
+                setClicked={setClicked}
+            />
+			<View style={{marginBottom:180, flexDirection:"row"}}>
+            	<ItemListing 
+					navigation={navigation} 
+					numOfColumns={2} 
+          			showIcons={true} 
+               		listStyle={styles.listStyle}
+	        	/>    
+		  	</View>  
+        </Screen>
+    );
 };
 
 export default SearchedItemScreen;
 
 const styles = StyleSheet.create({
-
-  CategoryContainer:{
-    flexDirection: "row",
-    flexWrap: "wrap"
-  },
-
+    listStyle:{
+        flex: 0.5, 
+        padding: 2, 
+    }
 });

@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet} from "react-native";
+import { View, StyleSheet, ScrollView} from "react-native";
 import ItemCard from "../components/ItemCard";
 import Screen from "../components/Screen";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
 import UserCard from "../components/UserCard";
-import { Feather  } from '@expo/vector-icons';
-import { ScrollView } from "react-native-gesture-handler";
 
 export default function ItemDetailScreen() {
+    const seller=false;
     const [qtyCounter, setQtyCounter] = useState(0);
     const increaseQtyCount = () => {
         console.log(qtyCounter);
@@ -29,39 +28,35 @@ export default function ItemDetailScreen() {
                 subTitle = "$999999999999"
                 imageStyle = {styles.imageStyle}
             />
-            <View style={styles.qtyButtonRow}>
-                <View style={styles.quantity}>
-                    <AppText style={styles.quantityLabel}>Qty</AppText> 
+            {!seller &&
+            <View>
+                <View style={styles.qtyButtonRow}>
+                    <View style={styles.quantity}>
+                        <AppText style={styles.quantityLabel}>Qty</AppText> 
+                    </View>
+                    <AppButton title="-" 
+                            onPress={()=>decreaseQtyCount()} 
+                            buttonStyle={styles.button}
+                            buttonTextStyle={styles.buttonText}/>                  
+                    <View style={styles.quantity}>
+                        <AppText style={styles.quantityLabel}>{qtyCounter}</AppText>
+                    </View>
+                    <AppButton title="+" 
+                            onPress={()=>increaseQtyCount()} 
+                            buttonStyle={styles.button}
+                            buttonTextStyle={styles.buttonText}/>    
                 </View>
-                <AppButton title="-" 
-                        onPress={()=>decreaseQtyCount()} 
-                        buttonStyle={styles.button}
-                        buttonTextStyle={styles.buttonText}/>                  
-                <View style={styles.quantity}>
-                    <AppText style={styles.quantityLabel}>{qtyCounter}</AppText>
+                <View style={styles.addToCartContainerStyle}>
+                    <AppButton title="Add to Cart" buttonStyle={styles.addToCartStyle} onPress={()=>console.log("Button Pressed")}/>
                 </View>
-                <AppButton title="+" 
-                        onPress={()=>increaseQtyCount()} 
-                        buttonStyle={styles.button}
-                        buttonTextStyle={styles.buttonText}/>    
             </View>
-            <View style={styles.addToCartContainerStyle}>
-                <AppButton title="Add to Cart" buttonStyle={styles.addToCartStyle} onPress={()=>console.log("Button Pressed")}/>
-            </View>
+            }
             <View >
                 <View style={styles.userContainer}>
                     <UserCard title="samantha123" subTitle="@samantha padukone" image = {require("../assets/mosh.jpg")}></UserCard>
-                    <AppButton title="Message" 
-                        onPress={()=>console.log("Message button pressed")} 
-                        buttonStyle={styles.messageStyle}
-                        />                        
                 </View>                    
                 <AppText style={styles.productDetailHeading}>Product Details</AppText> 
                 <AppText style={styles.productDetail}>
-                    Test Description
-                    Test Description
-                    Test Description
-                    Test Description
                     Test Description
                 </AppText>
             </View>

@@ -1,16 +1,17 @@
 import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import ArtisanScreen from '../screens/ArtisanScreen';
+import OrdersScreen from '../screens/OrdersScreen';
 import ItemDetailScreenNavigator from './ItemDetailScreenNavigator';
+
 const Stack = createStackNavigator();
 
-function ArtisanScreenNavigator() {
+function OrderScreenNavigator() {
     return (
-        <Stack.Navigator initialRouteName="ArtisanDetailScreen" screenOptions={{headerShown:false}}>      
-          <Stack.Screen name="ArtisanDetailScreen" component={ArtisanScreen} />
+        <Stack.Navigator initialRouteName="OrdersScreen" screenOptions={{headerShown:false}}>      
+          <Stack.Screen name="OrdersScreen" component={OrdersScreen} />
           <Stack.Screen name="ItemDetail" component={ItemDetailScreenNavigator} />
         </Stack.Navigator>
     );
 }
   
-export default ArtisanScreenNavigator; 
+export default OrderScreenNavigator; 

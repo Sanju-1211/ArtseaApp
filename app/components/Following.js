@@ -48,35 +48,31 @@ const followingUsers = [
 ];
 
 function Following({navigation}) {
-  console.log('sailaja');
-  console.log(navigation);
-  return (
-    <FlatList
-    data={followingUsers}
-    keyExtractor={(item, index) => item.id.toString()}
-    renderItem={({ item, index }) => {
-        const lastItem = index === followingUsers.length - 1;
-        return (
-          <UserCard
-            image={item.image}
-            title={item.title}
-            subTitle={item.subTitle}
-            userCardStyle={styles.userCardStyle}
-            onPress={() => navigation.navigate("ArtisanDetail")}
-          />                      
-        )
-      }
-    }
-    />
-  );
+    return (
+        <FlatList
+        data={followingUsers}
+        keyExtractor={(item, index) => item.id.toString()}
+        renderItem={({ item, index }) => {
+            const lastItem = index === followingUsers.length - 1;
+            return (
+                <UserCard
+                    image={item.image}
+                    title={item.title}
+                    subTitle={item.subTitle}
+                    userCardStyle={styles.userCardStyle}
+                    onPress={() => navigation.navigate("ArtisanDetail")}
+                />                      
+            )
+        }}
+        />
+    );
 }
 
 const styles = StyleSheet.create({
-
-  userCardStyle:{
-    marginTop: 10,
-    marginBottom: 10
-  }
+    userCardStyle:{
+        marginTop: 10,
+        marginBottom: 10
+    }
 });
 
 export default Following;
